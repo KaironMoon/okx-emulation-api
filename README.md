@@ -21,7 +21,19 @@ curl -X POST http://localhost:3000/admin/set-price \
   -d '{"instId":"BTC-USDT","price":30000}'
 ```
 
+### 상세 티커 설정
+```bash
+curl -X POST http://localhost:3000/admin/set-ticker \
+  -H "Content-Type: application/json" \
+  -d '{"instId":"BTC-USDT","instType":"SPOT","last":30000,"askPx":30001,"bidPx":29999}'
+```
+
 ### 시세 조회
 ```
 curl "http://localhost:3000/api/v5/market/ticker?instId=BTC-USDT"
+```
+
+### 여러 상품의 티커 조회
+```bash
+curl "http://localhost:3000/api/v5/market/tickers?instType=SPOT"
 ```
